@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Actu } from '../../../modele/actu';
 import { ActuService } from '../../../services/actu.service';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -15,22 +15,23 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
 export class EditComponent implements OnInit {
   
   news:Actu;
-
-  constructor(public actu:ActuService) { 
+  
+  constructor(public actu:ActuService, private routeParams:ActivatedRoute) { 
        
   } 
 
   ngOnInit() { 
-      this.news = {
-      titre:'',
-      alias:'',
-      description:'',
-      img:'',
-      auteur:''   
+
+  this.news = {
+    titre:'',
+    alias:'',
+    description:'',
+    img:'',
+    auteur:''  
   }
   
+  
 }
-
     onSubmit(form: NgForm,objet){
       const formValue = form.value;
       let values={
@@ -45,20 +46,8 @@ export class EditComponent implements OnInit {
           }
           
       });
-      console.log(objet);
+      //console.log(objet);
     
-      
-      
-
-    //indexModif=index;
-
-
-    //return indexModif;
- /*
-  envoyerModif(){
-      console.log(this.f.titre);
-      //this.actu.updateData(this.getNews(indexModif),indexModif);
-      console.log("ok");*/
   }   
     
 

@@ -12,7 +12,7 @@ import { ActuComponent } from './actu/actu.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ActuService } from './services/actu.service';
 import {EditComponent} from './admin/edition/edit/edit.component';
-
+import { SecuriseGuard } from './securise.guard'; 
 
 @NgModule({
   declarations: [
@@ -23,14 +23,13 @@ import {EditComponent} from './admin/edition/edit/edit.component';
     ListeActuComponent,
     ActuComponent,
     ConnexionComponent,
-    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ActuService],
+  providers: [ActuService, SecuriseGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

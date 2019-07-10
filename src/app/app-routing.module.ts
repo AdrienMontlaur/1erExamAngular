@@ -4,7 +4,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ListeActuComponent } from './liste-actu/liste-actu.component';
 import { ActuComponent } from './actu/actu.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { EditComponent } from './admin/edition/edit/edit.component';
+import { SecuriseGuard } from './securise.guard';
 
 const routes: Routes = [
   {path:'', component:AccueilComponent},
@@ -12,7 +12,9 @@ const routes: Routes = [
   {path:'actualite', component:ActuComponent},
   {path:'actualite/:francois', component:ActuComponent},
   {path:'connexion', component:ConnexionComponent},
-  {path:'edit', component:EditComponent}
+  //{path:'edit', component:EditComponent}
+  { path: 'edit', loadChildren: './admin/edition/edition.module#EditionModule', canLoad: [SecuriseGuard] },
+  { path: 'edit/:id', loadChildren: './admin/edition/edition.module#EditionModule', canLoad: [SecuriseGuard] },
 ];
 
 @NgModule({

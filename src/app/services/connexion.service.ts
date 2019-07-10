@@ -8,9 +8,10 @@ export class ConnexionService {
 
   user:Utilisateur;
   connecte:boolean;
+  
 
   constructor() {
-    this.connecte = this.getConnecte();
+    this.connecte = false;
     this.user = {
       identifiant:'',
       mdp:''
@@ -32,7 +33,12 @@ export class ConnexionService {
   }
 
   getDisconnect(){
-      
+      this.connecte = false;
+      this.user = {
+        identifiant:'',
+        mdp:''
+      }
+      sessionStorage.setItem('connecte', this.connecte.toString());
   }
 
   toutLeMondePeutChanger(){

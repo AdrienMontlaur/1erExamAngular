@@ -3,7 +3,7 @@
     <h3>{{ actu.titre }}</h3>
 
   </header>
-    <p *ngIf="conServ.user.identifiant!=''"><a href routerLink='../../edit'>Editer</a></p>
+    <p *ngIf="conServ.user.identifiant!=''"><a href [routerLink]="['../../edit']">Editer</a></p>
   <article>
     <img [src]="actu.img" [title]="actu.alias"/>
     <p>{{ actu.description }}</p>

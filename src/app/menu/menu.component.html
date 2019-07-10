@@ -5,7 +5,7 @@
     <li><a href routerLink='actualites'>Les nouvelles du jour</a></li>
     <li><a href routerLink='actualite'>L'actu du jour</a></li>
     <li><a href routerLink='connexion'>Connexion</a></li>
-    <li *ngIf="conServ.user.identifiant!=''"><a href routerLink='edit'>Editer</a></li>
+    <li *ngIf="conServ.connecte"><a href routerLink='edit'>Editer</a></li>
 
   </ul>
 </section>
